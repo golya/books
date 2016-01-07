@@ -1,0 +1,14 @@
+{
+  "name": "writers",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.4.8",
+    "angular-route": "~1.4.8",
+    "lodash": "~3.10.0"
+  },
+  "devDependencies": {
+  },
+  "resolutions": {
+    "angular": "1.4.8"
+  }
+}
