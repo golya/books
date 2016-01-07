@@ -19,7 +19,8 @@ gulp.task('sass', function () {
 gulp.task('css', ['sass'], function (done) {
     gulp.src([
         './css/*.css',
-        './css/**/*.css'
+        './css/**/*.css',
+        './bower_components/angular-material/angular-material.min.css'
     ])
         .pipe(concat('bundle.js'))
         .pipe(minifyCss({
@@ -44,6 +45,9 @@ gulp.task('buildjs', ['uglify'], function(done) {
     gulp.src([
         './bower_components/angular/angular.min.js',
         './bower_components/angular-route/angular-route.min.js',
+        './bower_components/angular-material/angular-material.min.js',
+        './bower_components/angular-animate/angular-animate.min.js',
+        './bower_components/angular-aria/angular-aria.min.js',
         './bower_components/lodash/lodash.min.js',
         './dist/js/prod.js'
     ])
