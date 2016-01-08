@@ -1,6 +1,15 @@
 @import './_variables/general.scss';
 
+body, html {
+    height:100%;
+    margin: 0;
+}
+
 body {
   font-family: $primary-font;
   background-color: $primary-color;
+}
+
+#main-content {
+    height: 100%;
 }
