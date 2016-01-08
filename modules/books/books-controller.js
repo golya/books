@@ -1,6 +1,8 @@
-booksController.$inject = ['$scope'];
+booksController.$inject = ['$scope', 'bookService'];
 angular.module('books').controller('booksController', booksController);
 
-function booksController($scope) {
-    // your code
+function booksController($scope, bookService) {
+    bookService.getBooks(function(books){
+        $scope.books = books;
+    });
 }
