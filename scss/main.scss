@@ -1,12 +1,14 @@
 @import './_variables/general.scss';
+@import 'text.scss';
 
 body, html {
     height:100%;
     margin: 0;
+    @include primary-text-style;
+}
 }
 
 body {
-  font-family: $primary-font;
   background-color: $primary-color;
 }
 
