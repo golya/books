@@ -13,6 +13,19 @@ books.service('bookService', ['$http',
             });
         };
 
+        this.getRecommendations = function(cb) {
+            $http.get('book.json').success(function(data) {
+                cb(_.sample(data, 3));
+            });
+        };
+
+        this.getBook = function(id, cb) {
+            $http.get('book.json').success(function(data) {
+                book = _.find(data, {"id": id});
+                cb(book);
+            });
+        };
+
         this.getFilterTypes = function() {
             var filters = {};
             filters.default = {'category': 'Fiction', 'type': 'Fantasy'};
