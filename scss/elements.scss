@@ -1,4 +1,5 @@
 @import './_variables/general.scss';
+@import 'text';
 
 .box {
     border: $primary-box-border $primary-box-border-style $primary-box-border-color;
@@ -11,4 +12,10 @@
 
 .box-margin {
     margin: 20px;
+}
+
+.message-box {
+    background-color: $message-box-color;
+    padding: 50px;
+    @include message-text-style;
 }

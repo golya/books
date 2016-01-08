@@ -12,6 +12,13 @@
     font-size: $secondary-font-size;
 }
 
+@mixin message-text-style {
+    color: $light-font-color;
+    font-family: $primary-font;
+    text-align: center;
+    font-size: $secondary-font-size * 2;
+}
+
 .primary-text {
     @include primary-text-style;
 }
