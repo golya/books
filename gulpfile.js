@@ -36,8 +36,8 @@ gulp.task('uglify', function() {
         './app.js',
         './modules/*/!(*-*).js',
         './modules/*/*-*.js',
-        './directives/**/*-*.js',
-        './services/**/*-*.js'
+        './directives/*/*-*.js',
+        './services/*/*-*.js'
     ])
         .pipe(uglify('prod.js'))
         .pipe(gulp.dest('dist/js/'));
