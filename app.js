@@ -21,3 +21,5 @@ books.config(['$routeProvider',
 // routes
 dependencies.push('books');
 routes.push({'module': 'books'});
+dependencies.push('details');
+routes.push({'path': '/books/:id', 'module': 'details'});
