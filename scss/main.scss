@@ -6,6 +6,11 @@ body, html {
     margin: 0;
     @include primary-text-style;
 }
+
+div,
+span {
+    text-decoration: none;
+    outline: 0;
 }
 
 body {
