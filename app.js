@@ -1,4 +1,4 @@
-var dependencies = ['ngRoute'];
+var dependencies = ['ngRoute', 'ngMaterial'];
 var routes = [];
 var books = angular.module('booksApp', dependencies);
 
