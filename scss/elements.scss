@@ -1,0 +1,6 @@
+@import './_variables/general.scss';
+
+.box {
+    border: $primary-box-border $primary-box-border-style $primary-box-border-color;
+    border-radius: $primary-box-border-radius;
+}
