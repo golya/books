@@ -7,7 +7,7 @@ var sass = require('gulp-sass');
 
 var paths = {
     scss: ['./scss/**/*.scss', './scss/*.scss', './modules/**/*.scss'],
-    js: ['app.js','modules/*/*.js'],
+    js: ['app.js','modules/*/*.js','./directives/**/*-*.js'],
 };
 
 gulp.task('sass', function () {
@@ -35,7 +35,8 @@ gulp.task('uglify', function() {
     return gulp.src([
         './app.js',
         './modules/*/!(*-*).js',
-        './modules/*/*-*.js'
+        './modules/*/*-*.js',
+        './directives/**/*-*.js'
     ])
         .pipe(uglify('prod.js'))
         .pipe(gulp.dest('dist/js/'));
