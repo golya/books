@@ -1,4 +1,4 @@
-<div class="box m-book-box primary-text clickable">
+<div class="box m-book-box primary-text clickable" ng-click="path('/books/'+book.id)">
     <div class="m-book-cover" background-image="{{book.cover}}"></div>
     <div class="m-book-text-box" layout="column" layout-align="start">
         <div class="m-book-title">{{book.name}}</div>

@@ -1,7 +1,7 @@
-booksController.$inject = ['$scope', 'bookService'];
+booksController.$inject = ['$scope', '$location', 'bookService'];
 angular.module('books').controller('booksController', booksController);
 
-function booksController($scope, bookService) {
+function booksController($scope, $location, bookService) {
     var filters = bookService.getFilterTypes();
     $scope.filters = filters.default
     $scope.categories = filters.categories;
@@ -13,4 +13,7 @@ function booksController($scope, bookService) {
         });
     }, true);
 
+    $scope.path = function (path) {
+        $location.path(path);
+    };
 }
