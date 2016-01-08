@@ -6,12 +6,12 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 
 var paths = {
-    scss: ['./scss/**/*.scss', './scss/*.scss', './modules/**/*.scss'],
+    scss: ['./scss/**/*.scss', './scss/*.scss', './modules/**/*.scss', './directives/**/*.scss'],
     js: ['app.js','modules/*/*.js','./directives/**/*-*.js','./services/**/*-*.js'],
 };
 
 gulp.task('sass', function () {
-  return gulp.src(['./scss/*.scss', './modules/**/*.scss'])
+  return gulp.src(['./scss/*.scss', './modules/**/*.scss', './directives/**/*.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('css'));
 });
