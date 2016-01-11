@@ -32,13 +32,20 @@ books.service('bookService', ['$http',
             });
         };
 
-        this.getFilterTypes = function() {
-            var filters = {};
+        this.getFilterTypes = function(cb) {
+            var filters = {'categories': [], 'types': []};
             filters.default = {'category': 'Fiction', 'type': 'Fantasy'};
 
-            filters.categories = ['Fiction', 'Non-Fiction'];
-            filters.types = ['Adventure', 'Arts', 'Fantasy'];
-            return filters;
+            $http.get('book.json').success(function(data) {
+                _.map(data, function (item) {
+                    filters.categories.push(item.genre.category);
+                    filters.types.push(item.genre.name);
+                });
+                filters.categories = _.uniq(filters.categories);
+                filters.types = _.uniq(filters.types);
+
+                cb(filters);
+            });
         };
     }
 ]);
