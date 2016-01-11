@@ -1,3 +1,13 @@
 #m-books {
     height:100%;
 }
+
+.m-books-header{
+    min-height: 500px;
+    background: url('http://lorempixel.com/1920/500/');
+    background-position:center center;
+}
+
+.m-books-filter-box {
+    background-color: rgba(#ffffff, 0.95);
+}
