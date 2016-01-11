@@ -14,10 +14,10 @@ books.service('bookService', ['$http',
             };
         };
 
-        this.getBooks = function(query, cb) {
-            var filterFunction = this.filter(query);
+        this.getBooks = function(query, start, cb) {
+            var filterFunction = filter(query);
             if ('search' in query && query.search != '') {
-                filterFunction = this.search(query);
+                filterFunction = search(query);
             }
 
             $http.get('book.json').success(function(data) {
