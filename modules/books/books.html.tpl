@@ -35,17 +35,19 @@
                 <div class="box box-margin box-padding message-box" ng-show="!books.length">
                     Ops, we did not find results.
                 </div>
-                <md-grid-list ng-show="books.length"
-                md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="4" md-cols-gt-lg="4"
-                md-row-height-xs="1:1.5" md-row-height="1:1.8" md-row-height-md="1:1.8"  md-row-height-gt-md="1:2" md-row-height="1:1"
-                md-gutter="12px" md-gutter-gt-sm="8px"
-                md-gutter="4px">
-                    <md-grid-tile ng-repeat="book in books">
-                        <book></book>
-                    </md-grid-tile>
-                </md-grid-list>
-                <div class="box box-padding box-margin clickable" flex ng-click="getMoreBooks()" layout="row" ng-show="hasMore" layout-align="center">
-                    Load more
+                <div ng-show="books.length">
+                    <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="4" md-cols-gt-lg="4"
+                    md-row-height-xs="1:1.5" md-row-height="1:1.8" md-row-height-md="1:1.8"  md-row-height-gt-md="1:2" md-row-height="1:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px"
+                    md-gutter="4px">
+                        <md-grid-tile ng-repeat="book in books">
+                            <book></book>
+                        </md-grid-tile>
+                    </md-grid-list>
+                    <div class="box box-padding box-margin clickable" flex ng-click="getMoreBooks()" layout="row" ng-show="hasMore" layout-align="center">
+                        Load more
+                    </div>
                 </div>
             </div>
         </div>
