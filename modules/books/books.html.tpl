@@ -24,7 +24,7 @@
                     <div class="md-title search-box" flex>
                         <md-input-container class="md-block">
                             <label><span class="fa fa-search"></span> Search for a book</label>
-                            <input flex ng-model="search">
+                            <input flex ng-model="filters.search">
                         </md-input-container>
                     </div>
                 </div>

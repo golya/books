@@ -1,21 +1,27 @@
 books.service('bookService', ['$http',
     function($http) {
 
-        this.filter = function(filters, cb) {
-            $http.get('book.json').success(function(data) {
-                var result = _.filter(data, function(item){
-                    return item.genre.category == filters.category && item.genre.name == filters.type;
-                });
-                cb(result);
-            });
+        function filter(query) {
+            return function(item){
+                return item.genre.category == query.category && item.genre.name == query.type;
+            };
         };
 
-        this.search = function(search, cb) {
+        function search(query) {
+            return function(item) {
+                return _.includes(item.author.name.toLowerCase(), query.search.toLowerCase())
+                    || _.includes(item.name.toLowerCase(), query.search.toLowerCase()) ;
+            };
+        };
+
+        this.getBooks = function(query, cb) {
+            var filterFunction = this.filter(query);
+            if ('search' in query && query.search != '') {
+                filterFunction = this.search(query);
+            }
+
             $http.get('book.json').success(function(data) {
-                var result = _.filter(data, function(item){
-                    return _.includes(item.author.name.toLowerCase(), search.toLowerCase())
-                        || _.includes(item.name.toLowerCase(), search.toLowerCase()) ;
-                });
+                var result = _.filter(data, filterFunction);
                 cb(result);
             });
         };
@@ -28,7 +34,7 @@ books.service('bookService', ['$http',
 
         this.getBook = function(id, cb) {
             $http.get('book.json').success(function(data) {
-                book = _.find(data, {"id": id});
+                book = _.find(data, {'id': id});
                 cb(book);
             });
         };

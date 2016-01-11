@@ -2,32 +2,29 @@ booksController.$inject = ['$scope', '$location', '$timeout', 'bookService'];
 angular.module('books').controller('booksController', booksController);
 
 function booksController($scope, $location, $timeout, bookService) {
+    $scope.filters = {'search': ''};
     bookService.getFilterTypes(function(filters) {
         $scope.filters = filters.default
         $scope.categories = filters.categories;
         $scope.types = filters.types;
     });
-    $scope.search = "";
-
-    $scope.$watch('filters', function(){
-        getBooks();
-    }, true);
+    $scope.filters.search = '';
 
     var searchTimeout;
-    $scope.$watch('search', function(){
-        if ( $scope.search == "") {
+    $scope.$watch('filters', function(){
+
+        if ( $scope.filters.search == '') {
             getBooks();
             return false;
         }
+
         if (searchTimeout) {
             $timeout.cancel(searchTimeout);
         }
         searchTimeout = $timeout(function() {
-            bookService.search($scope.search, function(books){
-                $scope.books = books;
-            });
+            getBooks();
         }, 250);
-    });
+    }, true);
 
     $scope.path = function (path) {
         $location.path(path);
@@ -37,7 +34,7 @@ function booksController($scope, $location, $timeout, bookService) {
         if (!$scope.filters) {
             return false;
         }
-        bookService.filter($scope.filters, function(books){
+        bookService.getBooks($scope.filters, function(books){
             $scope.books = books;
         });
     }
