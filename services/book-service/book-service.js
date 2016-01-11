@@ -5,6 +5,15 @@ books.service('bookService', ['$http',
                 var result = _.filter(data, function(item){
                     return item.genre.category == filters.category && item.genre.name == filters.type;
                 });
+                cb(result);
+            });
+        };
+
+        this.search = function(search, cb) {
+            $http.get('book.json').success(function(data) {
+                var result = _.filter(data, function(item){
+                    return _.includes(item.author.name.toLowerCase(), search.toLowerCase())
+                        || _.includes(item.name.toLowerCase(), search.toLowerCase()) ;
                 });
                 cb(result);
             });
