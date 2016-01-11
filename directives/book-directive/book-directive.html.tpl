@@ -7,7 +7,7 @@
             <div flex="50" layout="row" layout-align="start end">
                 <span ng-click="$event.stopPropagation();" class="transition-all secondary-clickable fa fa-heart-o"></span> {{book.likes}}
             </div>
-            <div flex="50" layout="row" layout-align="end end">{{book.published | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+            <div flex="50" layout="row" layout-align="end end">{{book.getPublishedDate()}}</div>
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
                     <div>
                         <span class="fa fa-heart-o"></span> {{book.likes}}
                     </div>
-                    <div flex="20" layout="row" layout-align="end end">{{book.published | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                    <div flex="20" layout="row" layout-align="end end">{{book.getPublishedDate()}}</div>
                 </div>
             </div>
         </div>
