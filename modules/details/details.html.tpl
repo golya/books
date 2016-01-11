@@ -1,5 +1,5 @@
 <div id="m-details" layout="column" flex>
-    <div class="m-details-header light-text" flex="50" layout="row" layout-align="center center">
+    <div class="box-header m-details-header light-text" flex="50" layout="row" layout-align="center center">
         <div>
             <div class="md-display-3">
                 {{book.name}}

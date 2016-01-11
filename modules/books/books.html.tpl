@@ -1,5 +1,5 @@
 <div id="m-books" layout="column">
-        <div layout="row" layout-align="center center" class="m-books-header">
+        <div layout="row" layout-align="center center" class="box-header m-books-header">
             <div flex-sm="100" flex-xs="100" flex-md="100" flex-gt-md="50">
                 <div class="box box-padding box-margin m-books-filter-box">
                     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center">
