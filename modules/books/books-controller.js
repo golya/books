@@ -8,12 +8,16 @@ function booksController($scope, $location, bookService) {
     $scope.types = filters.types;
 
     $scope.$watch('filters', function(){
-        bookService.getBooks($scope.filters, function(books){
-            $scope.books = books;
-        });
+        getBooks();
     }, true);
 
     $scope.path = function (path) {
         $location.path(path);
     };
+
+    function getBooks () {
+        bookService.getBooks($scope.filters, function(books){
+            $scope.books = books;
+        });
+    }
 }
