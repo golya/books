@@ -32,8 +32,8 @@
             </div>
             <md-divider></md-divider>
             <div class="box-padding" layout="row" layout-align="center" >
-                <div layout="column">
-                    <div class="m-details-profile-box" background-image="{{book.author.avatar}}"></div>
+                <div layout="column" layout-align="center center">
+                    <div class="box-margin m-details-profile-box" background-image="{{book.author.avatar}}"></div>
                     <span>Written by {{book.author.name}}</span>
                 </div>
             </div>
