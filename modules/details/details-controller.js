@@ -4,11 +4,17 @@ angular.module('details').controller('detailsController', detailsController);
 function detailsController($scope, $routeParams, $location, bookService) {
     bookService.getBook($routeParams.id, function(book){
         $scope.book = book;
+        getRecommendations();
     });
 
-    bookService.getRecommendations(function(books){
-        $scope.books = books;
-    });
+    function getRecommendations() {
+        bookService.getRecommendations(
+            {'category': $scope.book.genre.category, 'type': $scope.book.genre.name},
+            function(books){
+                $scope.books = books;
+            }
+        );
+    }
 
     $scope.path = function (path) {
         $location.path(path);

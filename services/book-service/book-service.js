@@ -26,9 +26,10 @@ books.service('bookService', ['$http',
             });
         };
 
-        this.getRecommendations = function(cb) {
+        this.getRecommendations = function(query, cb) {
             $http.get('book.json').success(function(data) {
-                cb(_.sample(data, 3));
+                var result = _.filter(data, filter(query));
+                cb(_.sample(result, 3));
             });
         };
 
