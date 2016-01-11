@@ -51,6 +51,7 @@ gulp.task('buildjs', ['uglify'], function(done) {
         './bower_components/angular-animate/angular-animate.min.js',
         './bower_components/angular-aria/angular-aria.min.js',
         './bower_components/lodash/lodash.min.js',
+        './bower_components/moment/min/moment.min.js',
         './dist/js/prod.js'
     ])
         .pipe(concat('bundle.js'))
