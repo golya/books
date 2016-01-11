@@ -37,7 +37,7 @@ function booksController($scope, $location, $timeout, bookService) {
         if (!$scope.filters) {
             return false;
         }
-        bookService.getBooks($scope.filters, function(books){
+        bookService.filter($scope.filters, function(books){
             $scope.books = books;
         });
     }
