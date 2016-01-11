@@ -5,16 +5,16 @@
                     <div layout="row" layout-sm="column" layout-xs="column" layout-align="center">
                         <div class="md-headline" layout="row" layout-align="center center">Find me the best</div>
                         <md-input-container>
-                            <md-select class="md-headline" ng-model="filters.category" ng-change="clear()" md-no-float>
+                            <md-select class="md-headline" ng-model="filters.category" ng-change="clear()">
                                 <label>Category</label>
-                                <md-option ng-repeat="category in categories" placeholder="category" value="{{category}}">{{category}}</md-option>
+                                <md-option ng-repeat="(category,types) in availableFilters" placeholder="category" value="{{category}}">{{category}}</md-option>
                             </md-select>
                         </md-input-container>
                         <div class="md-headline" layout="row" layout-align="center center">books about</div>
                         <md-input-container>
-                            <md-select class="md-headline" ng-model="filters.type" ng-change="clear()" md-no-float>
+                            <md-select class="md-headline" ng-model="filters.type" ng-change="clear()">
                                 <label>Type</label>
-                                <md-option ng-repeat="type in types" placeholder="type" value="{{type}}">{{type}}</md-option>
+                                <md-option ng-repeat="type in availableFilters[filters.category]" placeholder="type" value="{{type}}">{{type}}</md-option>
                             </md-select>
                         </md-input-container>
                     </div>

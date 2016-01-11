@@ -8,14 +8,12 @@ function booksController($scope, $location, $timeout, bookService) {
     $scope.hasMore = true;
     $scope.books = [];
     bookService.getFilterTypes(function(filters) {
-        $scope.filters = {'search': ''};
         $scope.filters = filters.default
-        $scope.categories = filters.categories;
-        $scope.types = filters.types;
+        $scope.availableFilters = filters.all;
     });
 
     var searchTimeout;
-    $scope.$watch('filters', function(){
+    $scope.$watch('filters', function() {
         $scope.hasMore = true;
         $scope.from = 0;
         $scope.books = [];

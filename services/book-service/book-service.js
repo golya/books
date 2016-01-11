@@ -41,17 +41,18 @@ books.service('bookService', ['$http',
         };
 
         this.getFilterTypes = function(cb) {
-            var filters = {'categories': [], 'types': []};
+            var filters = {'all': {}};
             filters.default = {'category': 'Fiction', 'type': 'Fantasy'};
 
             $http.get('book.json').success(function(data) {
                 _.map(data, function (item) {
-                    filters.categories.push(item.genre.category);
-                    filters.types.push(item.genre.name);
+                    if (!(item.genre.category in filters.all)) {
+                        filters.all[item.genre.category] = [];
+                    }
+                    if (!_.includes(filters.all[item.genre.category], item.genre.name)){
+                        filters.all[item.genre.category].push(item.genre.name);
+                    }
                 });
-                filters.categories = _.uniq(filters.categories);
-                filters.types = _.uniq(filters.types);
-
                 cb(filters);
             });
         };
