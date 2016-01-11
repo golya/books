@@ -19,3 +19,8 @@
     padding: 50px;
     @include message-text-style;
 }
+
+.box-header {
+    min-height: 500px;
+    background-position: center center;
+}
