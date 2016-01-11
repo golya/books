@@ -26,6 +26,10 @@ function booksController($scope, $location, $timeout, bookService) {
         }, 250);
     }, true);
 
+    $scope.clear = function () {
+        $scope.filters.search = '';
+    };
+
     $scope.path = function (path) {
         $location.path(path);
     };
