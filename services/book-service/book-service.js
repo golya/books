@@ -2,12 +2,9 @@ books.service('bookService', ['$http',
     function($http) {
         this.getBooks = function(filters, cb) {
             $http.get('book.json').success(function(data) {
-                var result;
-                data = _.filter(data, function(item){
-                    return item.genre.category == filters.category;
+                var result = _.filter(data, function(item){
+                    return item.genre.category == filters.category && item.genre.name == filters.type;
                 });
-                result = _.filter(data, function(item){
-                    return item.genre.name == filters.type;
                 });
                 cb(result);
             });
