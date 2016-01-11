@@ -1,5 +1,5 @@
-books.service('bookService', ['$http',
-    function($http) {
+books.service('bookService', ['$http', 'User',
+    function($http, User) {
 
         function filter(query) {
             return function(item){
@@ -22,21 +22,21 @@ books.service('bookService', ['$http',
 
             $http.get('book.json').success(function(data) {
                 var result = _.filter(data, filterFunction);
-                cb(_.slice(result, start=start, end=start+10));
+                cb(_.map(_.slice(result, start=start, end=start+10), User.build));
             });
         };
 
         this.getRecommendations = function(query, cb) {
             $http.get('book.json').success(function(data) {
                 var result = _.filter(data, filter(query));
-                cb(_.sample(result, 3));
+                cb(_.map(_.sample(result, 3), User.build));
             });
         };
 
         this.getBook = function(id, cb) {
             $http.get('book.json').success(function(data) {
                 book = _.find(data, {'id': id});
-                cb(book);
+                cb(User.build(book));
             });
         };
 
