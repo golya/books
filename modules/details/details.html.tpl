@@ -25,7 +25,7 @@
                 Introduction
             </div>
             <div class="md-display-1">
-                {{book.description}}
+                {{book.name}}
             </div>
             <div class="md-regular m-details-content" ng-repeat="text in book.introduction">
                 {{text.content}}
