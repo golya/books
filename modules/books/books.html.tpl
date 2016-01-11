@@ -14,7 +14,7 @@
                         <md-input-container>
                             <md-select class="md-headline" ng-model="filters.type" md-no-float>
                                 <label>Type</label>
-                                <md-option ng-repeat="type in types" placeholder="type"  value="{{type}}">{{type}}</md-option>
+                                <md-option ng-repeat="type in types" placeholder="type" value="{{type}}">{{type}}</md-option>
                             </md-select>
                         </md-input-container>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="md-title search-box" flex>
                         <md-input-container class="md-block">
                             <label><span class="fa fa-search"></span> Search for a book</label>
-                            <input flex ng-model="product.consignment">
+                            <input flex ng-model="search">
                         </md-input-container>
                     </div>
                 </div>
