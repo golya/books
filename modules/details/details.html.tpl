@@ -16,6 +16,12 @@
                 <div class="md-regular">
                     {{book.genre.category}}, {{book.genre.name}}
                 </div>
+                <div class="box-padding" layout="column" layout-align="center center">
+                    <div>
+                        <span class="fa fa-heart-o"></span> {{book.likes}}
+                    </div>
+                    <div flex="20" layout="row" layout-align="end end">{{book.published | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                </div>
             </div>
         </div>
     </div>
