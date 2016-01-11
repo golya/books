@@ -44,6 +44,9 @@
                         <book></book>
                     </md-grid-tile>
                 </md-grid-list>
+                <div class="box box-padding box-margin clickable" flex ng-click="getMoreBooks()" layout="row" ng-show="hasMore" layout-align="center">
+                    Load more
+                </div>
             </div>
         </div>
 </div>

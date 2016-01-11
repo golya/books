@@ -2,18 +2,24 @@ booksController.$inject = ['$scope', '$location', '$timeout', 'bookService'];
 angular.module('books').controller('booksController', booksController);
 
 function booksController($scope, $location, $timeout, bookService) {
-    $scope.filters = {'search': ''};
+    var pageSize = 10;
+    $scope.filters = {};
+    $scope.from = 0;
+    $scope.hasMore = true;
+    $scope.books = [];
     bookService.getFilterTypes(function(filters) {
+        $scope.filters = {'search': ''};
         $scope.filters = filters.default
         $scope.categories = filters.categories;
         $scope.types = filters.types;
     });
-    $scope.filters.search = '';
 
     var searchTimeout;
     $scope.$watch('filters', function(){
-
-        if ( $scope.filters.search == '') {
+        $scope.hasMore = true;
+        $scope.from = 0;
+        $scope.books = [];
+        if ( 'search' in $scope.filters && $scope.filters.search == '') {
             getBooks();
             return false;
         }
@@ -34,12 +40,21 @@ function booksController($scope, $location, $timeout, bookService) {
         $location.path(path);
     };
 
-    function getBooks () {
-        if (!$scope.filters) {
-            return false;
-        }
-        bookService.getBooks($scope.filters, function(books){
-            $scope.books = books;
+    getBooks = function getBooks () {
+        bookService.getBooks($scope.filters, $scope.from, function(books) {
+            if (books.length < pageSize) {
+                $scope.hasMore = false;
+            }
+            _.forEach(books, function(book){
+                $scope.books.push(book);
+            });
         });
+    }
+
+    $scope.getMoreBooks = function () {
+        if ($scope.books.length > 0) {
+            $scope.from += pageSize;
+            getBooks();
+        }
     }
 }

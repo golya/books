@@ -22,7 +22,7 @@ books.service('bookService', ['$http',
 
             $http.get('book.json').success(function(data) {
                 var result = _.filter(data, filterFunction);
-                cb(result);
+                cb(_.slice(result, start=start, end=start+10));
             });
         };
 
