@@ -46,7 +46,7 @@
             <md-divider></md-divider>
         </div>
     </div>
-    <div class="m-details-recommendations" layout="row" layout-align="center">
+    <div class="m-details-recommendations" layout="row" layout-align="center" ng-show="books.length">
         <div layout="column" flex="50" flex-sm="90" flex-xs="90">
             <h3 class="md-display-1">
                 Similar Reading
@@ -54,7 +54,7 @@
             <div class="md-regular">
                 If you liked this book, we recommend you check out these emerging titles.
             </div>
-            <md-grid-list ng-show="books.length"
+            <md-grid-list
             md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
             md-row-height-xs="1:1.5" md-row-height="1:1.8" md-row-height-md="1:1.8"  md-row-height-gt-md="1:2" md-row-height="1:1"
             md-gutter="12px" md-gutter-gt-sm="8px"
