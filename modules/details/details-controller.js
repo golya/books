@@ -13,7 +13,11 @@ function detailsController($scope, $routeParams, $location, bookService) {
 
     function getRecommendations() {
         bookService.getRecommendations(
-            {'category': $scope.book.genre.category, 'type': $scope.book.genre.name},
+            {
+                'category': $scope.book.genre.category,
+                'type': $scope.book.genre.name,
+                'id': $scope.book.id
+            },
             function(books){
                 $scope.books = books;
             }

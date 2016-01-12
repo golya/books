@@ -29,6 +29,9 @@ books.service('bookService', ['$http', 'User',
         this.getRecommendations = function(query, cb) {
             $http.get('book.json').success(function(data) {
                 var result = _.filter(data, filter(query));
+                result = _.filter(result, function(item) {
+                    return item.id != query.id;
+                });
                 cb(_.map(_.sample(result, 3), User.build));
             });
         };
