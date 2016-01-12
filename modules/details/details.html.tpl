@@ -1,6 +1,6 @@
 <div id="m-details" layout="column" flex>
     <div class="box-header m-details-header light-text" flex="50" layout="row" layout-align="center center">
-        <div>
+        <div class="animated fade fadeIn">
             <div class="md-display-3">
                 {{book.name}}
             </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div layout="row" layout-align="center">
-        <div layout="column" flex="30" flex-sm="90" flex-xs="90">
+        <div class="animated fade fadeIn" layout="column" flex="30" flex-sm="90" flex-xs="90">
             <div class="md-subhead secondary-text m-details-introduction-title">
                 Introduction
             </div>
