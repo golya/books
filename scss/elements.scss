@@ -7,20 +7,20 @@
 }
 
 .box-padding {
-    padding: 20px;
+    padding: $primary-padding;
 }
 
 .box-margin {
-    margin: 20px;
+    margin: $primary-padding;
 }
 
 .message-box {
     background-color: $message-box-color;
-    padding: 50px;
+    padding: $large-padding;
     @include message-text-style;
 }
 
 .box-header {
-    min-height: 500px;
+    min-height: $header-height;
     background-position: center center;
 }
