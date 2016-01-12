@@ -20,7 +20,8 @@ gulp.task('css', ['sass'], function (done) {
     gulp.src([
         './css/*.css',
         './css/**/*.css',
-        './bower_components/angular-material/angular-material.min.css'
+        './bower_components/angular-material/angular-material.min.css',
+        './bower_components/animate.css/animate.min.css'
     ])
         .pipe(concat('bundle.js'))
         .pipe(minifyCss({
