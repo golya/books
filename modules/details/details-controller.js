@@ -7,6 +7,10 @@ function detailsController($scope, $routeParams, $location, bookService) {
         getRecommendations();
     });
 
+    $scope.path = function (path) {
+        $location.path(path);
+    };
+
     function getRecommendations() {
         bookService.getRecommendations(
             {'category': $scope.book.genre.category, 'type': $scope.book.genre.name},
@@ -15,8 +19,4 @@ function detailsController($scope, $routeParams, $location, bookService) {
             }
         );
     }
-
-    $scope.path = function (path) {
-        $location.path(path);
-    };
 }

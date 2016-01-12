@@ -38,7 +38,14 @@ function booksController($scope, $location, $timeout, bookService) {
         $location.path(path);
     };
 
-    getBooks = function getBooks () {
+    $scope.getMoreBooks = function () {
+        if ($scope.books.length > 0) {
+            $scope.from += pageSize;
+            getBooks();
+        }
+    }
+
+    function getBooks () {
         bookService.getBooks($scope.filters, $scope.from, function(books) {
             if (books.length < pageSize) {
                 $scope.hasMore = false;
@@ -47,12 +54,5 @@ function booksController($scope, $location, $timeout, bookService) {
                 $scope.books.push(book);
             });
         });
-    }
-
-    $scope.getMoreBooks = function () {
-        if ($scope.books.length > 0) {
-            $scope.from += pageSize;
-            getBooks();
-        }
     }
 }
